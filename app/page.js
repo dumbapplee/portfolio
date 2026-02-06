@@ -134,7 +134,7 @@ export default function Home() {
             Please visit this site on a desktop device.
           </div>
           <div style={{ marginTop: "1.2rem", fontSize: "0.8rem", color: "#cccccc" }}>You can check my projects here: </div>
-          <div style={{ marginTop: "0.5rem", fontSize: "1.1rem", color: "#ffffff" }}><a href="https://github.com/restodechuva">GitHub</a></div>
+          <div style={{ marginTop: "0.5rem", fontSize: "1.1rem", color: "#ffffff" }}><a href="https://github.com/roxas">GitHub</a></div>
         </div>
       </div>
     );
