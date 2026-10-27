@@ -96,6 +96,51 @@ function ToshokanTooltip() {
   );
 }
 
+function SteamCanvasTooltip() {
+  const [videoLoaded, setVideoLoaded] = require('react').useState(false);
+  return (
+    <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: 260, maxWidth: 340 }}>
+      {!videoLoaded && (
+        <div style={{ width: '100%', height: 190, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#181818', borderRadius: 8 }}>
+          <div style={{
+            width: 40,
+            height: 40,
+            border: '4px solid #fff',
+            borderTop: '4px solid #3178c6',
+            borderRadius: '50%',
+            animation: 'spin 1s linear infinite'
+          }} />
+          <style>{`
+            @keyframes spin {
+              0% { transform: rotate(0deg); }
+              100% { transform: rotate(360deg); }
+            }
+          `}</style>
+        </div>
+      )}
+      <video
+        src="/videos/steamcanvas.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        style={{
+          width: '100%',
+          maxWidth: 320,
+          height: 'auto',
+          borderRadius: 8,
+          boxShadow: '0 4px 24px rgba(0,0,0,0.25)',
+          objectFit: 'cover',
+          maxHeight: 190,
+          background: '#181818',
+          display: videoLoaded ? 'block' : 'none'
+        }}
+        onLoadedData={() => setVideoLoaded(true)}
+      />
+    </div>
+  );
+}
+
 const Projects = () => {
   const { language, translations } = useLang();
 
@@ -133,6 +178,13 @@ const Projects = () => {
               id: "toshokan",
               link: "https://toshokan-azure.vercel.app/",
               tooltip: <ToshokanTooltip />
+            },
+            {
+              text: "Steam Canvas",
+              image: "/steamcanvas.png",
+              id: "steamcanvas",
+              link: "https://steamcanvas.design/",
+              tooltip: <SteamCanvasTooltip />
             },
             {
               text: "CSManager",
